@@ -85,6 +85,12 @@ do
             }
             Presionar();
             break;
+        case "4":
+            break;
+        default:
+            Console.WriteLine("opcion no valida");
+            Presionar();
+            break;
     }
     Console.Clear();
 } while (opcion != "4");
