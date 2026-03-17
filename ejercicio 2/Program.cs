@@ -80,7 +80,7 @@ do
                 mayor.MostrarInfo();
 
                 Console.WriteLine();
-                Console.WriteLine($"valor total del inventario: Q.{valorT}");
+                Console.WriteLine($"valor total del inventario general: Q.{valorT}");
 
             }
             Presionar();
@@ -108,14 +108,15 @@ class Producto
 
     public string ObtenerEstado()
     {
-        if (cantidad > 0) return "stock bajo";
-        else if (cantidad >= 5) return "stock suficiente";
+        if (cantidad > 0 && cantidad<=5) return "stock bajo";
+        else if (cantidad >= 6) return "stock suficiente";
         else return "sin stock";
     }
 
     public void MostrarInfo()
     {
         Console.WriteLine($"nombre: {nombre}  |  Precio unitario: Q.{precio}  |  " +
-            $"cantidad en stock: {cantidad}  |  valor Total del stock: Q.{ValorTproducto()}");
+            $"estado del stock: {ObtenerEstado()}  |  valor Total del stock: Q.{ValorTproducto()}");
+        Console.WriteLine();
     }
 }
