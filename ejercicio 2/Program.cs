@@ -57,6 +57,7 @@ do
             Presionar();
             break;
     }
+    Console.Clear();
 } while (opcion != "4");
 
 class Producto
