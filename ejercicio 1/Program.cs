@@ -83,6 +83,7 @@ do
 
     Console.Clear();
 } while (opcion != "4");
+
 class Estrudiante
 {
     public string nombre;
