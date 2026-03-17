@@ -4,6 +4,7 @@
     Console.WriteLine("Presione Enter Para continuar");
     Console.ReadLine();
 }
+
 List<Estrudiante> estudiantes = new List<Estrudiante>();
 string opcion;
 do
@@ -42,9 +43,39 @@ do
             Presionar();
             break;
         case "2":
-            foreach(Estrudiante e in estudiantes)
+            if(estudiantes.Count == 0)
             {
-                e.MostrarInfo();
+                Console.WriteLine("no hay estudiantes registrados");
+            }
+            else
+            {
+                foreach (Estrudiante e in estudiantes)
+                {
+                    e.MostrarInfo();
+                }
+            }
+            Presionar();
+            break;
+        case "3":
+            if (estudiantes.Count == 0)
+            {
+                Console.WriteLine("no hay estudiantes registrado");
+            }
+            else
+            {
+                Console.WriteLine("El mejor estudiante es: ");
+                Console.WriteLine();
+                Estrudiante mejor = estudiantes[0];
+
+                foreach (Estrudiante e in estudiantes)
+                {
+                    if (e.calcularPromedio() > mejor.calcularPromedio())
+                    {
+                        mejor = e;
+                    }
+                }
+                mejor.MostrarInfo();
+
             }
             Presionar();
             break;
@@ -72,7 +103,7 @@ class Estrudiante
 
     public void MostrarInfo()
     {
-        Console.WriteLine($"Nombre: {nombre}    |   nota 1: {nota1}|   nota 2: {nota2}  " +
+        Console.WriteLine($"Nombre: {nombre}    |   nota 1: {nota1}  |   nota 2: {nota2}  " +
             $"|   nota 3: {nota3}   |   Promedio: {calcularPromedio():F2}   |  estado del estudiante: {ObtenerEstado()}");
         Console.WriteLine();
     }
