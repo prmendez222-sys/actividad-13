@@ -42,6 +42,20 @@ do
             Console.WriteLine("Productos Guardados con exito");
             Presionar();
             break;
+        case "2":
+            if (productos.Count == 0)
+            {
+                Console.WriteLine("no hay productos registrados");
+            }
+            else
+            {
+                foreach (Producto p in productos)
+               {
+                    p.MostrarInfo();
+                }
+            }
+            Presionar();
+            break;
     }
 } while (opcion != "4");
 
