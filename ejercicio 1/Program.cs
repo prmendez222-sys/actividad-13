@@ -41,6 +41,13 @@ do
             Console.WriteLine("Estudiantes Guardados con exito");
             Presionar();
             break;
+        case "2":
+            foreach(Estrudiante e in estudiantes)
+            {
+                e.MostrarInfo();
+            }
+            Presionar();
+            break;
     }
 
     Console.Clear();
@@ -65,7 +72,7 @@ class Estrudiante
 
     public void MostrarInfo()
     {
-        Console.WriteLine($"Nombre: {nombre}    |   nota 1: {nota1}|   nota 2: {nota2}" +
+        Console.WriteLine($"Nombre: {nombre}    |   nota 1: {nota1}|   nota 2: {nota2}  " +
             $"|   nota 3: {nota3}   |   Promedio: {calcularPromedio():F2}   |  estado del estudiante: {ObtenerEstado()}");
         Console.WriteLine();
     }
