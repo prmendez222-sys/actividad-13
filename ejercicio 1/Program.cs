@@ -1,4 +1,51 @@
-﻿class Estrudiante
+﻿void Presionar()
+{
+    Console.WriteLine();
+    Console.WriteLine("Presione Enter Para continuar");
+    Console.ReadLine();
+}
+List<Estrudiante> estudiantes = new List<Estrudiante>();
+string opcion;
+do
+{
+    Console.WriteLine("1. ingresar estudiantes");
+    Console.WriteLine("2. mostrar estudiantes registrados");
+    Console.WriteLine("3. mostrar al mejor estudiante");
+    Console.WriteLine("4. salir");
+    Console.WriteLine();
+    Console.Write("ingrese una opcion: ");
+    opcion= Console.ReadLine();
+    Console.Clear();
+
+    switch (opcion)
+    {
+        case "1":
+            Console.Write("Cuantos estudiantes desea ingresar: ");
+            int n=int.Parse(Console.ReadLine());
+
+            Console.Clear();
+
+            for(int i=0; i<n; i++)
+            {
+                Estrudiante e = new Estrudiante();
+                Console.WriteLine($"ingrese datos del estudiante {i+1}: ");
+                Console.WriteLine();
+                Console.Write("Nombre: "); e.nombre = Console.ReadLine();
+                Console.Write("nota1: "); e.nota1 = double.Parse(Console.ReadLine());
+                Console.Write("nota2: "); e.nota2 = double.Parse(Console.ReadLine());
+                Console.Write("nota3: "); e.nota3 = double.Parse(Console.ReadLine());
+                estudiantes.Add(e);
+                Console.Clear();
+            }
+
+            Console.WriteLine("Estudiantes Guardados con exito");
+            Presionar();
+            break;
+    }
+
+    Console.Clear();
+} while (opcion != "4");
+class Estrudiante
 {
     public string nombre;
     public double nota1;
