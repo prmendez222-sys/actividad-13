@@ -56,6 +56,35 @@ do
             }
             Presionar();
             break;
+        case "3":
+            if (productos.Count == 0)
+            {
+                Console.WriteLine("no hay estudiantes registrado");
+            }
+            else
+            {
+                Console.WriteLine("El Producto con el precio mas costoso es: ");
+                Console.WriteLine();
+                double valorT = 0;
+
+                Producto mayor = productos[0];
+
+                foreach (Producto p in productos)
+                {
+                    valorT += p.ValorTproducto();
+                    if (p.precio > mayor.precio)
+                    {
+                        mayor = p;
+                    }
+                }
+                mayor.MostrarInfo();
+
+                Console.WriteLine();
+                Console.WriteLine($"valor total del inventario: Q.{valorT}");
+
+            }
+            Presionar();
+            break;
     }
     Console.Clear();
 } while (opcion != "4");
